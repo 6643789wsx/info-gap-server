@@ -2,6 +2,7 @@
 
 import logging
 from typing import Iterable, List, Optional
+import ollama
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 from info_gap.config import LLM_OPENAI, MODEL
 from info_gap.task.base_task import BaseTask
@@ -45,6 +46,11 @@ class CompletionTask(BaseTask):
     def _complete(self, messages: List[ChatCompletionMessageParam]) -> str:
         """Run the completion with given history."""
         logging.debug("REQUEST: %s", messages)
+
+        res=ollama.chat(model="llama3:8b", stream=False, messages=messages)
+        return res['message']['content'] or ""
+
+
         result = LLM_OPENAI.chat.completions.create(
             model=MODEL,
             messages=messages,
