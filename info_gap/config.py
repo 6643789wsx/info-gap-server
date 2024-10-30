@@ -3,7 +3,7 @@
 import os
 import time
 from openai import OpenAI
-import instructor
+# import instructor
 import arxiv  # type: ignore
 from dotenv import load_dotenv
 
@@ -16,10 +16,10 @@ LLM_OPENAI = OpenAI(
     base_url=os.getenv("OPENAI_API_URL", "https://api.openai.com/v1"),
     api_key=os.getenv("OPENAI_API_KEY", "sk_1234567890abcdef1234567890abcdef"),
 )
-LLM_CLIENT = instructor.from_openai(
-    LLM_OPENAI,
-    mode=instructor.Mode.JSON,
-)
+# LLM_CLIENT = instructor.from_openai(
+#     LLM_OPENAI,
+#     mode=instructor.Mode.JSON,
+# )
 
 # Initialize log path
 CURRENT_DATETIME = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime())
