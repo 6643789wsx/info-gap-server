@@ -1,5 +1,8 @@
 # Info Gap
 
+在服务器上的环境是conda activate agile
+在主机上的环境是conda activate reuse-tree
+
 **English** [中文](README-zh.md)
 
 An AI daemon for arXiv paper searching. Time and token count is traded for low model requirement, response length and quality.
